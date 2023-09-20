@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AttributeService } from 'src/app/Service/attributes/attribute.service';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,6 @@ import { FormsModule } from '@angular/forms';
     AttributeDeleteComponent,
   ],
   providers:[AttributeService],
-  imports: [CommonModule,HttpClientModule,SharedModule,FormsModule, AttributesRoutingModule],
+  imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule, AttributesRoutingModule],
 })
 export class AttributesModule {}

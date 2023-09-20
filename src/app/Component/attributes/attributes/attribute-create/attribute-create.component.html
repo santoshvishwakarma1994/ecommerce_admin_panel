@@ -1,89 +1,23 @@
-<!-- Create a form to add a new product -->
-<div class="container">
-  <h2>Create Product</h2>
-  <form (submit)="createProduct()">
+<form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="attributeId">Attribute ID:</label>
-      <select
-        id="attributeId"
-        [(ngModel)]="selectedAttribute.id"
-        name="attributeId"
-        class="form-control"
-        required
-      >
-        <option value="" disabled>Select an Attribute</option>
-        <option *ngFor="let attribute of availableAttributes" [value]="attribute.id">
-          {{ attribute.id }}
-        </option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="attributeName">Attribute Name:</label>
+      <label for="name">Attribute Name</label>
       <input
         type="text"
-        id="attributeName"
-        [(ngModel)]="selectedAttribute.name"
-        name="attributeName"
+        id="name"
+        formControlName="name"
         class="form-control"
-        required
-      >
+      />
     </div>
-
     <div class="form-group">
-      <label for="attributeValues">Attribute Values:</label>
-      <select
-        id="attributeValues"
-        [(ngModel)]="selectedAttribute.values"
-        name="attributeValues"
-        class="form-control"
-        multiple
-        required
-      >
-        <option *ngFor="let value of selectedAttribute.values" [value]="value">
-          {{ value }}
-        </option>
+      <label for="values">Attribute Values</label>
+      <select id="values" formControlName="values" multiple class="form-control">
+        <!-- Add options for attribute values here -->
+        <option value="Value 1">Value 1</option>
+        <option value="Value 2">Value 2</option>
+        <option value="Value 3">Value 3</option>
+        <!-- Add more options as needed -->
       </select>
     </div>
-
-    <!-- You can add fields for other product properties here -->
-    
-    <div class="form-group">
-      <label for="productName">Product Name:</label>
-      <input
-        type="text"
-        id="productName"
-        name="productName"
-        class="form-control"
-        required
-      >
-    </div>
-
-    <div class="form-group">
-      <label for="productDescription">Product Description:</label>
-      <textarea
-        id="productDescription"
-        name="productDescription"
-        class="form-control"
-        rows="4"
-        required
-      ></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="productCategory">Product Category:</label>
-      <select
-        id="productCategory"
-        name="productCategory"
-        class="form-control"
-        required
-      >
-        <option value="" disabled>Select a Category</option>
-        <!-- Populate with categories fetched from your data service -->
-      </select>
-    </div>
-    <!-- Add more form fields for other product properties as needed -->
-
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">Create Attribute</button>
   </form>
-</div>
+  

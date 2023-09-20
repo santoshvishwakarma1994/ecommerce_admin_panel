@@ -1,13 +1,7 @@
-<!-- Display the list of attributes here -->
-<!-- <a [routerLink]="/attributes">Home</a> -->
 <a [routerLink]="['/attributes/create']">User Profile</a>
-
-<!-- attribute-list.component.html -->
-
-<!-- Display the list of attributes with dropdowns for values -->
 <div class="container">
   <h2>Attributes List</h2>
-  <table class="table table-bordered">
+  <table>
     <thead>
       <tr>
         <th>ID</th>
@@ -16,8 +10,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let attribute of attributes">
-        <td>{{ attribute.id }}</td>
+      <tr *ngFor="let attribute of attributes; let i = index">
+        <td>{{ i + 1 }}</td>
         <td>{{ attribute.name }}</td>
         <td>
           <select class="form-control">
@@ -28,6 +22,6 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table>  
 </div>
 

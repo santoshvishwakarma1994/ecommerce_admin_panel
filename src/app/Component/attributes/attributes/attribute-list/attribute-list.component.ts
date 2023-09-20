@@ -16,4 +16,5 @@ export class AttributeListComponent implements OnInit {
   ngOnInit(): void {
     this.attributes = this.mockDataService.getAttributes();
   }
+  
 }
