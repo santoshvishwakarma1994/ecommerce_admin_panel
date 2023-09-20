@@ -1,0 +1,33 @@
+<!-- Display the list of attributes here -->
+<!-- <a [routerLink]="/attributes">Home</a> -->
+<a [routerLink]="['/attributes/create']">User Profile</a>
+
+<!-- attribute-list.component.html -->
+
+<!-- Display the list of attributes with dropdowns for values -->
+<div class="container">
+  <h2>Attributes List</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Values</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attribute of attributes">
+        <td>{{ attribute.id }}</td>
+        <td>{{ attribute.name }}</td>
+        <td>
+          <select class="form-control">
+            <option *ngFor="let value of attribute.values" [value]="value">
+              {{ value }}
+            </option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
