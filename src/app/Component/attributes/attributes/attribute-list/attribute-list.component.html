@@ -1,7 +1,7 @@
 <p-toast></p-toast>
 <p-confirmDialog #cd [style]="{width: '40vw'}">
     <ng-template pTemplate="header">
-        <h3>Delete Attributes</h3>
+        <h3>Delete Categories</h3>
     </ng-template>
     <ng-template pTemplate="footer">
         <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
@@ -12,7 +12,7 @@
 <div class="grid m-2">
   <div class="col-12 md:col-6">
     <div class="card">
-        <p-table [value]="filteredAttributes" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[10, 20, 50]"
+        <p-table [value]="filteredAttributes" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 20, 50]"
           [style]="{ 'min-width': '50rem' }">
           <ng-template pTemplate="caption">
             <div class="flex">
@@ -29,7 +29,7 @@
               <th>ID </th>
               <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
               <th pSortableColumn="values">Values <p-sortIcon field="values"></p-sortIcon></th>
-              <th>Edit</th>
+              <th>Action</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-attribute let-i="rowIndex">
@@ -38,7 +38,6 @@
               <td>{{ attribute.name }}</td>
               <td>
                 {{attribute.values}}
-                <!-- <p-multiSelect [options]="attribute.values" [(ngModel)]="selectedValues" defaultLabel="Select Values"></p-multiSelect> -->
               </td>
               <td>
                 <button pButton icon="pi pi-pencil" class="m-2" pTooltip="Edit" tooltipPosition="top"
@@ -60,35 +59,3 @@
 
 
 
-
-<!-- 
-<a [routerLink]="['/attributes/create']">User Profile</a>
-<div class="container">
-  <h2>Attributes List</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Values</th>
-        <th>edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let attribute of attributes; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ attribute.name }}</td>
-        <td>
-          <select class="form-control">
-            <option *ngFor="let value of attribute.values" [value]="value">
-              {{ value }}
-            </option>
-          </select>
-        </td>
-        <button (click)="editAttribute(attribute.id)">Edit</button>
-        <button (click)="deleteAttribute(attribute.id)">Delete</button>
-
-      </tr>
-    </tbody>
-  </table>
-</div> -->

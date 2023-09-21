@@ -1,1 +1,22 @@
-<p>category-create works!</p>
+<p-toast></p-toast>
+<p-card header="Categories Data">
+  <form [formGroup]="categoriesForm" (ngSubmit)="onSubmit()" class="p-fluid">
+    <div class="p-grid">
+      <div class="p-col-6">
+        <div class="p-field col-3">
+          <label for="name">Category Name</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="p-inputtext"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <button type="submit" pButton class="p-button-primary">Create Category</button>
+    </div>
+  </form>
+</p-card>
+<p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>

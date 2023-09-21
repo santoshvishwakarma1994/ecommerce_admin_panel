@@ -8,7 +8,6 @@ import { Product } from '../Model/product.model';
 })
 export class MockDataService {
   private attributes: Attribute[] = [
-    // Mock attribute data here
     { id: 1, name: 'Color', values: ['Red', 'Blue', 'Green'] },
     { id: 2, name: 'Size', values: ['Small', 'Medium', 'Large'] },
     { id: 3, name: 'Material', values: ['Cotton', 'Leather', 'Silk'] },
@@ -32,7 +31,6 @@ export class MockDataService {
   ];
 
   private categories: Category[] = [
-    // Mock category data here
     { id: 1, name: 'Electronics', parentId: null },
     { id: 2, name: 'Clothing', parentId: null },
     { id: 3, name: 'Laptops', parentId: 1 },
@@ -40,7 +38,6 @@ export class MockDataService {
   ];
 
   private products: Product[] = [
-    // Mock product data here
     {
       id: 1,
       name: 'Laptop 1',
@@ -63,23 +60,18 @@ export class MockDataService {
     },
   ];
 
-  // Get all attributes
   getAttributes(): Attribute[] {
     return this.attributes;
   }
 
-  // Get all categories
   getCategories(): Category[] {
     return this.categories;
   }
 
-  // Get all products
   getProducts(): Product[] {
     return this.products;
   }
-  // Get all attribute values
   getAllAttributeValues(): string[] {
-    // Collect all unique attribute values from your attributes array
     const allValues: string[] = [];
 
     this.attributes.forEach((attribute) => {
@@ -93,17 +85,14 @@ export class MockDataService {
     return allValues;
   }
 
-  // Create a new attribute
   createAttribute(attribute: Attribute): void {
     this.attributes.push(attribute);
   }
 
-  // Create a new category
   createCategory(category: Category): void {
     this.categories.push(category);
   }
 
-  // Create a new product
   createProduct(product: Product): void {
     this.products.push(product);
   }
@@ -111,8 +100,10 @@ export class MockDataService {
   getAttributeById(id: number): Attribute | undefined {
     return this.attributes.find((attribute) => attribute.id === id);
   }
+  getCategoryById(id: number): Category | undefined {
+    return this.categories.find((category) => category.id === id);
+  }
 
-  // Update an existing attribute
   updateAttribute(attribute: Attribute): void {
     const index = this.attributes.findIndex((a) => a.id === attribute.id);
     if (index !== -1) {
@@ -120,7 +111,6 @@ export class MockDataService {
     }
   }
 
-  // Update an existing category
   updateCategory(category: Category): void {
     const index = this.categories.findIndex((c) => c.id === category.id);
     if (index !== -1) {
@@ -128,7 +118,6 @@ export class MockDataService {
     }
   }
 
-  // Update an existing product
   updateProduct(product: Product): void {
     const index = this.products.findIndex((p) => p.id === product.id);
     if (index !== -1) {
@@ -136,16 +125,13 @@ export class MockDataService {
     }
   }
 
-  // Delete an attribute
   deleteAttribute(attributeId: number): void {
     this.attributes = this.attributes.filter((a) => a.id !== attributeId);
   }
-  // Delete a category
   deleteCategory(categoryId: number): void {
     this.categories = this.categories.filter((c) => c.id !== categoryId);
   }
 
-  // Delete a product
   deleteProduct(productId: number): void {
     this.products = this.products.filter((p) => p.id !== productId);
   }

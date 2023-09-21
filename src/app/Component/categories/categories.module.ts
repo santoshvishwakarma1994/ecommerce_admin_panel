@@ -10,6 +10,8 @@ import { CategoryDeleteComponent } from './category/category-delete/category-del
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { CategoryService } from 'src/app/Service/categories/category.service';
+import { MessageService } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,8 @@ import { CategoryService } from 'src/app/Service/categories/category.service';
     CategoryUpdateComponent,
     CategoryDeleteComponent
   ],
-  providers:[CategoryService],
-  imports: [
-    CommonModule,
-    CategoriesRoutingModule,
-    SharedModule,
-    HttpClientModule
-  ]
+  providers:[CategoryService,MessageService],
+  imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule, CategoriesRoutingModule],
+
 })
 export class CategoriesModule { }

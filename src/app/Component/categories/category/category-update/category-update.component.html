@@ -1,1 +1,18 @@
-<p>category-update works!</p>
+
+<p-toast></p-toast>
+<p-card header="Update Category">
+    <form (ngSubmit)="updateCategory()" #categoryForm="ngForm">
+      <div class="p-grid">
+        <div class="col-3">
+          <div class="p-field">
+            <label for="name">Category Name</label><br>
+            <input type="text" class="w-12" pInputText name="name" [(ngModel)]="category.name" required>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <button type="submit" pButton class="btn btn-primary" label="Update Category"></button>
+      </div>
+    </form>
+</p-card>
+  
