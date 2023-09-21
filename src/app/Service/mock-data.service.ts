@@ -35,7 +35,17 @@ export class MockDataService {
     { id: 2, name: 'Clothing', parentId: null },
     { id: 3, name: 'Laptops', parentId: 1 },
     { id: 4, name: 'T-Shirts', parentId: 2 },
+    { id: 5, name: 'Smartphones', parentId: 1 },
+    { id: 6, name: 'Dresses', parentId: 2 },
+    { id: 7, name: 'Accessories', parentId: 1 },
+    { id: 8, name: 'Jeans', parentId: 2 },
+    { id: 9, name: 'Gaming Laptops', parentId: 3 },
+    { id: 10, name: 'Casual T-Shirts', parentId: 4 },
+    { id: 11, name: 'Chargers', parentId: 5 },
+    { id: 12, name: 'Formal Dresses', parentId: 6 },
+    { id: 13, name: 'Headphones', parentId: 7 },
   ];
+  
 
   private products: Product[] = [
     {
@@ -86,14 +96,18 @@ export class MockDataService {
   }
 
   createAttribute(attribute: Attribute): void {
+    attribute.id = this.attributes.length > 0 ? Math.max(...this.attributes.map(attr => attr.id)) + 1 : 1;
     this.attributes.push(attribute);
   }
+  
 
   createCategory(category: Category): void {
+    category.id = this.categories.length > 0 ? Math.max(...this.categories.map(attr => attr.id)) + 1 : 1;
     this.categories.push(category);
   }
 
   createProduct(product: Product): void {
+    product.id = this.products.length > 0 ? Math.max(...this.products.map(attr => attr.id)) + 1 : 1;
     this.products.push(product);
   }
 

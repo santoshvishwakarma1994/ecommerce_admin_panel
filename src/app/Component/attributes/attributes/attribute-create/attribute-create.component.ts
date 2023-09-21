@@ -14,9 +14,11 @@ export class AttributeCreateComponent implements OnInit {
 
   attributeForm: FormGroup;
   attributeValues: any[] = [
-    { label: 'Value 1', value: 'Value 1' },
-    { label: 'Value 2', value: 'Value 2' },
-    { label: 'Value 3', value: 'Value 3' },
+    { label: 'Color', value: 'color' },
+    { label: 'Size', value: 'size' },
+    { label: 'Material', value: 'material' },
+    { label: 'Style', value: 'style' },
+    { label: 'Category', value: 'category' },
   ];
 
   constructor(

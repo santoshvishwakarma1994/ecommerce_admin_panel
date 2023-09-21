@@ -53,9 +53,17 @@ export class AttributeListComponent implements OnInit {
     });
   }
   filterAttributes(): void {
-      this.filteredAttributes = this.attributes.filter((attribute) =>
-        attribute.name.toLowerCase().includes(this.globalFilter.toLowerCase())
-      );
-      this.table.reset();
+    this.filteredAttributes = this.attributes.filter((attribute) => {
+      const nameMatch = attribute.name.toLowerCase().includes(this.globalFilter.toLowerCase());
+      const idMatch = attribute.id.toString().includes(this.globalFilter);
+      const valuesString = attribute.values.join(', ').toLowerCase();
+      const valuesMatch = valuesString.includes(this.globalFilter.toLowerCase());
+  
+      return nameMatch || idMatch || valuesMatch;
+    });
+  
+    this.table.reset();
   }
+  
+  
 }
