@@ -11,6 +11,24 @@ export class MockDataService {
     // Mock attribute data here
     { id: 1, name: 'Color', values: ['Red', 'Blue', 'Green'] },
     { id: 2, name: 'Size', values: ['Small', 'Medium', 'Large'] },
+    { id: 3, name: 'Material', values: ['Cotton', 'Leather', 'Silk'] },
+    { id: 4, name: 'Style', values: ['Casual', 'Formal', 'Sportswear'] },
+    { id: 5, name: 'Brand', values: ['Nike', 'Adidas', 'Puma'] },
+    { id: 6, name: 'Gender', values: ['Men', 'Women', 'Unisex'] },
+    { id: 7, name: 'Type', values: ['T-shirt', 'Jeans', 'Sneakers'] },
+    { id: 8, name: 'Occasion', values: ['Party', 'Workout', 'Outdoor'] },
+    { id: 9, name: 'Season', values: ['Spring', 'Summer', 'Fall', 'Winter'] },
+    { id: 10, name: 'Pattern', values: ['Stripes', 'Plaid', 'Floral', 'Solid'] },
+    { id: 11, name: 'Sleeve Length', values: ['Short Sleeve', 'Long Sleeve', 'Sleeveless'] },
+    { id: 12, name: 'Neckline', values: ['Round Neck', 'V-Neck', 'Crew Neck'] },
+    { id: 13, name: 'Closure', values: ['Button', 'Zipper', 'Elastic'] },
+    { id: 14, name: 'Fit', values: ['Slim Fit', 'Regular Fit', 'Loose Fit'] },
+    { id: 15, name: 'Waistline', values: ['High Waist', 'Mid Waist', 'Low Waist'] },
+    { id: 16, name: 'Inseam Length', values: ['Short', 'Regular', 'Long'] },
+    { id: 17, name: 'Heel Height', values: ['Low Heel', 'Medium Heel', 'High Heel'] },
+    { id: 18, name: 'Toe Style', values: ['Round Toe', 'Pointed Toe', 'Open Toe'] },
+    { id: 19, name: 'Lining Material', values: ['Leather', 'Textile', 'Synthetic'] },
+    { id: 20, name: 'Fastening', values: ['Lace-Up', 'Buckle', 'Slip-On'] },
   ];
 
   private categories: Category[] = [
@@ -59,6 +77,21 @@ export class MockDataService {
   getProducts(): Product[] {
     return this.products;
   }
+  // Get all attribute values
+  getAllAttributeValues(): string[] {
+    // Collect all unique attribute values from your attributes array
+    const allValues: string[] = [];
+
+    this.attributes.forEach((attribute) => {
+      attribute.values.forEach((value) => {
+        if (!allValues.includes(value)) {
+          allValues.push(value);
+        }
+      });
+    });
+
+    return allValues;
+  }
 
   // Create a new attribute
   createAttribute(attribute: Attribute): void {
@@ -73,6 +106,10 @@ export class MockDataService {
   // Create a new product
   createProduct(product: Product): void {
     this.products.push(product);
+  }
+
+  getAttributeById(id: number): Attribute | undefined {
+    return this.attributes.find((attribute) => attribute.id === id);
   }
 
   // Update an existing attribute
@@ -103,7 +140,6 @@ export class MockDataService {
   deleteAttribute(attributeId: number): void {
     this.attributes = this.attributes.filter((a) => a.id !== attributeId);
   }
-
   // Delete a category
   deleteCategory(categoryId: number): void {
     this.categories = this.categories.filter((c) => c.id !== categoryId);

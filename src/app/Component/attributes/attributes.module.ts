@@ -10,6 +10,7 @@ import { AttributeService } from 'src/app/Service/attributes/attribute.service';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AttributeUpdateComponent,
     AttributeDeleteComponent,
   ],
-  providers:[AttributeService],
+  providers:[AttributeService,MessageService],
   imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule, AttributesRoutingModule],
 })
 export class AttributesModule {}

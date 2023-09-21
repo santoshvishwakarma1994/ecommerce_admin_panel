@@ -1,3 +1,67 @@
+<p-toast></p-toast>
+<p-confirmDialog #cd [style]="{width: '40vw'}">
+    <ng-template pTemplate="header">
+        <h3>Delete Attributes</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>
+
+<div class="grid m-2">
+  <div class="col-12 md:col-6">
+    <div class="card">
+        <p-table [value]="filteredAttributes" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[10, 20, 50]"
+          [style]="{ 'min-width': '50rem' }">
+          <ng-template pTemplate="caption">
+            <div class="flex">
+              <button pButton icon="pi pi-plus" label="Add Product" [routerLink]="['/attributes/create']" pTooltip="Add Product"
+              tooltipPosition="top"></button>                
+              <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input [(ngModel)]="globalFilter" pInputText (input)="filterAttributes()" placeholder="Search" />
+                  </span>
+            </div>
+        </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th>ID </th>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="values">Values <p-sortIcon field="values"></p-sortIcon></th>
+              <th>Edit</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-attribute let-i="rowIndex">
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ attribute.name }}</td>
+              <td>
+                {{attribute.values}}
+                <!-- <p-multiSelect [options]="attribute.values" [(ngModel)]="selectedValues" defaultLabel="Select Values"></p-multiSelect> -->
+              </td>
+              <td>
+                <button pButton icon="pi pi-pencil" class="m-2" pTooltip="Edit" tooltipPosition="top"
+                  (click)="editAttribute(attribute.id)"></button>
+                <button pButton icon="pi pi-trash" class="m-2" pTooltip="Delete" tooltipPosition="top"
+                  (click)="deleteAttribute(attribute.id)"></button>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="4" style="text-align:center">No data found.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+  </div>
+</div>
+
+
+
+
+<!-- 
 <a [routerLink]="['/attributes/create']">User Profile</a>
 <div class="container">
   <h2>Attributes List</h2>
@@ -7,6 +71,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Values</th>
+        <th>edit</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +85,10 @@
             </option>
           </select>
         </td>
+        <button (click)="editAttribute(attribute.id)">Edit</button>
+        <button (click)="deleteAttribute(attribute.id)">Delete</button>
+
       </tr>
     </tbody>
-  </table>  
-</div>
-
+  </table>
+</div> -->
