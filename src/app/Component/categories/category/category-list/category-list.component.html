@@ -12,7 +12,7 @@
 <div class="grid m-2">
   <div class="col-12 md:col-6">
     <div class="card">
-        <p-table [value]="filteredcategories" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 20, 50]"
+        <p-table [value]="filteredcategories" [scrollable]="true" scrollHeight="500px" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 20, 50]"
           [style]="{ 'min-width': '50rem' }">
           <ng-template pTemplate="caption">
             <div class="flex">
