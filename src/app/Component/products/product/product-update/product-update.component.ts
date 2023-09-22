@@ -61,16 +61,16 @@ export class ProductUpdateComponent implements OnInit {
       this.selectedCategory = this.categories.find(
         (category) => category.id === product.categoryId
       ) || null;
-
+  
       this.productUpdateForm.patchValue({
         productName: product.name,
         productDescription: product.description,
         productCategory: this.selectedCategory,
-        productAttributes: product.attributes,
+        productAttributes: product.attributes, // Set initial value here
       });
     }
   }
-
+  
 
   updateProduct() {
     if (this.productUpdateForm.valid) {
