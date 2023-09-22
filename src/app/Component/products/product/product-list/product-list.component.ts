@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.products = this.mockDataService.getProducts();
+    this.products = this.mockDataService.getProducts().reverse();
   }
 
   loadCategories() {
