@@ -9,7 +9,6 @@ import { CategoryUpdateComponent } from './category/category-update/category-upd
 import { CategoryDeleteComponent } from './category/category-delete/category-delete.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared-module/shared.module';
-import { CategoryService } from 'src/app/Service/categories/category.service';
 import { MessageService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -21,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CategoryUpdateComponent,
     CategoryDeleteComponent
   ],
-  providers:[CategoryService,MessageService],
+  providers:[MessageService],
   imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule, CategoriesRoutingModule],
 
 })

@@ -6,7 +6,6 @@ import { AttributeCreateComponent } from './attributes/attribute-create/attribut
 import { AttributeUpdateComponent } from './attributes/attribute-update/attribute-update.component';
 import { AttributeDeleteComponent } from './attributes/attribute-delete/attribute-delete.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AttributeService } from 'src/app/Service/attributes/attribute.service';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +18,7 @@ import { MessageService } from 'primeng/api';
     AttributeUpdateComponent,
     AttributeDeleteComponent,
   ],
-  providers:[AttributeService,MessageService],
+  providers:[MessageService],
   imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule, AttributesRoutingModule],
 })
 export class AttributesModule {}

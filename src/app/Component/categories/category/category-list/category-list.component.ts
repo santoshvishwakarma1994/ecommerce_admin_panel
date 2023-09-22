@@ -2,7 +2,7 @@ import { Component,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Category } from 'src/app/Model/category.model';
+import { Category } from 'src/app/model/category.model';
 import { MockDataService } from 'src/app/Service/mock-data.service';
 
 @Component({

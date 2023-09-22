@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MockDataService } from 'src/app/Service/mock-data.service';
-import { Product } from 'src/app/Model/product.model';
-import { Category } from 'src/app/Model/category.model';
+import { Product } from 'src/app/model/product.model';
+import { Category } from 'src/app/model/category.model';
 import { MessageService } from 'primeng/api';
-import { Attribute } from 'src/app/Model/attribute.model';
+import { Attribute } from 'src/app/model/attribute.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({

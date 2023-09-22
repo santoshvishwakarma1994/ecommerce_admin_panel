@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Message, MessageService } from 'primeng/api';
-import { Category } from 'src/app/Model/category.model';
+import { Category } from 'src/app/model/category.model';
 import { MockDataService } from 'src/app/Service/mock-data.service';
 
 @Component({

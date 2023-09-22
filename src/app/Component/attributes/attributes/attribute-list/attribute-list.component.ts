@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Attribute } from 'src/app/Model/attribute.model';
+import { Attribute } from 'src/app/model/attribute.model';
 import { MockDataService } from 'src/app/Service/mock-data.service';
 import { Table } from 'primeng/table';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -26,7 +26,9 @@ export class AttributeListComponent implements OnInit {
     this.attributes = this.mockDataService.getAttributes();
     this.filterAttributes();
   }
-
+  loadData(){
+    this.attributes = this.mockDataService.getAttributes().reverse();
+  }
   editAttribute(id: number): void {
     if (id !== undefined && !isNaN(id)) {
       this.router.navigate(['/attributes/update', id]);

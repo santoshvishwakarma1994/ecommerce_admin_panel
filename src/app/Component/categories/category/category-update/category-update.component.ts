@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Category } from 'src/app/Model/category.model'; 
+import { Category } from 'src/app/model/category.model'; 
 import { MockDataService } from 'src/app/Service/mock-data.service';
 
 @Component({

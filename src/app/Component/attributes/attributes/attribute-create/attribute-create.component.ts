@@ -47,7 +47,7 @@ export class AttributeCreateComponent implements OnInit {
       this.messageService.add({
         severity: 'success',
         summary: 'Success',
-        detail: 'Message Content',
+        detail: 'Attribute created successfully',
       });
       setTimeout(() => {
         this.router.navigate(['/attributes/list']);

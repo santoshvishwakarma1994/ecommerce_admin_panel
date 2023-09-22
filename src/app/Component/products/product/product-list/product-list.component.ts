@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
-import { Attribute } from 'src/app/Model/attribute.model';
-import { Category } from 'src/app/Model/category.model';
-import { Product } from 'src/app/Model/product.model';
+import { Attribute } from 'src/app/model/attribute.model';
+import { Category } from 'src/app/model/category.model';
+import { Product } from 'src/app/model/product.model';
 import { MockDataService } from 'src/app/Service/mock-data.service';
 
 @Component({
@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.products = this.mockDataService.getProducts().reverse();
+    this.products = this.mockDataService.getProducts();
   }
 
   loadCategories() {

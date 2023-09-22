@@ -7,7 +7,6 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductUpdateComponent } from './product/product-update/product-update.component';
 import { ProductDeleteComponent } from './product/product-delete/product-delete.component';
-import { ProductService } from 'src/app/Service/products/product.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { MessageService } from 'primeng/api';
@@ -22,7 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductUpdateComponent,
     ProductDeleteComponent
   ],
-  providers:[ProductService,MessageService],
+  providers:[MessageService],
   imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule,ProductsRoutingModule],
 
 })

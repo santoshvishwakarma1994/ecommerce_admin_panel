@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Attribute } from 'src/app/Model/attribute.model';
-import { AttributeService } from 'src/app/Service/attributes/attribute.service';
+import { Attribute } from 'src/app/model/attribute.model';
 import { MockDataService } from 'src/app/Service/mock-data.service';
 
 @Component({
@@ -40,7 +39,7 @@ export class AttributeUpdateComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Success',
-      detail: 'Message Content',
+      detail: 'Attributes updated successfully',
     });
   setTimeout(() => {
     this.router.navigate(['/attributes/list']);
