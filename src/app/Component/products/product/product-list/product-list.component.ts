@@ -37,11 +37,6 @@ export class ProductListComponent implements OnInit {
     this.attributes = this.mockDataService.getAttributes();
   }
 
-  showDialogToAdd() {
-    this.selectedProduct = {} as Product;
-    this.displayDialog = true;
-  }
-
   save() {
     if (this.selectedProduct.id) {
       this.mockDataService.updateProduct(this.selectedProduct);
@@ -51,19 +46,6 @@ export class ProductListComponent implements OnInit {
 
     this.displayDialog = false;
     this.loadProducts();
-  }
-
-  delete() {
-    if (this.selectedProduct.id) {
-      this.mockDataService.deleteProduct(this.selectedProduct.id);
-      this.displayDialog = false;
-      this.loadProducts();
-    }
-  }
-
-  onRowSelect(event: any) {
-    this.selectedProduct = { ...event.data };
-    this.displayDialog = true;
   }
 
   getCategoryName(categoryId: number): string {
