@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { Router } from '@angular/router';
+import { ConfirmationService, MessageService, SelectItem } from 'primeng/api';
 import { Attribute } from 'src/app/Model/attribute.model';
 import { Category } from 'src/app/Model/category.model';
 import { Product } from 'src/app/Model/product.model';
@@ -8,7 +9,8 @@ import { MockDataService } from 'src/app/Service/mock-data.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
@@ -20,7 +22,7 @@ export class ProductListComponent implements OnInit {
   selectedAttributes: SelectItem[] = [];
   availableAttributes: SelectItem[] = [];
   
-  constructor(private mockDataService: MockDataService) { }
+  constructor(private confirmationService: ConfirmationService, private router: Router,private messageService: MessageService,private mockDataService: MockDataService) { }
 
   ngOnInit() {
     this.loadProducts();
@@ -35,18 +37,18 @@ export class ProductListComponent implements OnInit {
   loadCategories() {
     this.categories = this.mockDataService.getCategories();
   }
-  getUniqueAttributes(attributes: Attribute[]): Attribute[] {
-    const uniqueAttributes: Attribute[] = [];
+  // getUniqueAttributes(attributes: Attribute[]): Attribute[] {
+  //   const uniqueAttributes: Attribute[] = [];
   
-    attributes.forEach((attribute) => {
-      const existingAttribute = uniqueAttributes.find((a) => a.id === attribute.id);
-      if (!existingAttribute) {
-        uniqueAttributes.push(attribute);
-      }
-    });
+  //   attributes.forEach((attribute) => {
+  //     const existingAttribute = uniqueAttributes.find((a) => a.id === attribute.id);
+  //     if (!existingAttribute) {
+  //       uniqueAttributes.push(attribute);
+  //     }
+  //   });
   
-    return uniqueAttributes;
-  }
+  //   return uniqueAttributes;
+  // }
   
   loadAttributes() {
     this.attributes = this.mockDataService.getAllProductAttributes();
@@ -55,15 +57,29 @@ export class ProductListComponent implements OnInit {
     const category = this.categories.find(cat => cat.id === categoryId);
     return category ? category.name : '';
   }
-  save() {
-    if (this.selectedProduct.id) {
-      this.mockDataService.updateProduct(this.selectedProduct);
+  editProduct(id: number): void {
+    if (id !== undefined && !isNaN(id)) {
+      this.router.navigate(['/products/update', id]);
     } else {
-      this.mockDataService.createProduct(this.selectedProduct);
+      alert('Something went wrong');
     }
-
-    this.displayDialog = false;
-    this.loadProducts();
+  }
+  deleteProduct(id: number): void {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete this Category?',
+      icon: 'pi pi-trash',
+      accept: () => {
+        this.mockDataService.deleteProduct(id);
+        this.products = this.mockDataService.getProducts();
+        setTimeout(() => {
+        this.loadProducts();
+      }, 1000); 
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category deleted' });
+      },
+      reject: () => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Deletion cancelled' });
+      }
+    });
   }
 
   getCategoryName(categoryId: number): string {

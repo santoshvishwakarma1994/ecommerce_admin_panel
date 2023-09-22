@@ -53,16 +53,6 @@ export class CategoryListComponent {
     });
   }
   filterCategories(): void {
-    //   this.filteredcategories = this.categories.filter((categories) =>
-    //   categories.name.toLowerCase().includes(this.globalFilter.toLowerCase()));
-    //   const idMatch = attribute.id.toString().includes(this.globalFilter);
-    //   const valuesString = attribute.values.join(', ').toLowerCase();
-    //   const valuesMatch = valuesString.includes(this.globalFilter.toLowerCase());
-  
-    //   return nameMatch || idMatch || valuesMatch;
-    // });
-  
-    // this.table.reset();
     this.filteredcategories = this.categories.filter((attribute) => {
       const nameMatch = attribute.name.toLowerCase().includes(this.globalFilter.toLowerCase());
       const idMatch = attribute.id.toString().includes(this.globalFilter);
