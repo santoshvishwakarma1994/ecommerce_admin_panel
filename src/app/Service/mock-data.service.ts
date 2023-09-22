@@ -130,6 +130,11 @@ export class MockDataService {
   getAttributeById(id: number): Attribute | undefined {
     return this.attributes.find((attribute) => attribute.id === id);
   } 
+
+  getProductById(id: number): Product | undefined {
+    return this.products.find((product) => product.id === id);
+  } 
+
   getCategoryById(id: number): Category | undefined {
     return this.categories.find((category) => category.id === id);
   }

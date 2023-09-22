@@ -36,20 +36,7 @@ export class ProductListComponent implements OnInit {
 
   loadCategories() {
     this.categories = this.mockDataService.getCategories();
-  }
-  // getUniqueAttributes(attributes: Attribute[]): Attribute[] {
-  //   const uniqueAttributes: Attribute[] = [];
-  
-  //   attributes.forEach((attribute) => {
-  //     const existingAttribute = uniqueAttributes.find((a) => a.id === attribute.id);
-  //     if (!existingAttribute) {
-  //       uniqueAttributes.push(attribute);
-  //     }
-  //   });
-  
-  //   return uniqueAttributes;
-  // }
-  
+  } 
   loadAttributes() {
     this.attributes = this.mockDataService.getAllProductAttributes();
   }

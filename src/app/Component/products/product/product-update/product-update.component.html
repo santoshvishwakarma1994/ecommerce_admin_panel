@@ -1,1 +1,38 @@
-<p>product-update works!</p>
+<p-card header="Update Product Data">
+    <form [formGroup]="productUpdateForm" (ngSubmit)="updateProduct()" class="p-fluid">
+        <div class="p-col-6">
+            <div class="p-field col-3">
+                <label for="productName">Product Name</label>
+                <input type="text" pInputText id="productName" formControlName="productName">
+            </div>
+        </div>
+
+        <div class="p-col-6">
+            <div class="p-field col-3">
+                <label for="productDescription">Product Description</label>
+                <textarea pInputTextarea id="productDescription" formControlName="productDescription"
+                    rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="p-col-6">
+            <div class="p-field col-3">
+                <label for="productCategory">Product Category</label>
+                <p-dropdown [options]="categories" formControlName="productCategory" placeholder="Select Category"
+                    optionLabel="name"></p-dropdown>
+            </div>
+        </div>
+
+        <div class="p-col-6">
+            <div class="p-field col-3">
+                <label for="productAttributes">Product Attributes</label>
+                <p-multiSelect placeholder="Select Attribute" [options]="attributes" formControlName="productAttributes"
+                    optionLabel="name"></p-multiSelect>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <button type="submit" pButton class="p-button-primary">Update Product</button>
+        </div>
+    </form>
+</p-card>
