@@ -1,1 +1,66 @@
-<p>product-list works!</p>
+
+<div class="grid m-2">
+    <div class="col-12 md:col-6">
+        <div class="card">
+            <p-table [value]="products" [paginator]="true" [rows]="10" [responsive]="true" selectionMode="single"
+                (onRowSelect)="onRowSelect($event)">
+                <ng-template pTemplate="caption">
+                    <div class="flex">
+                        <button pButton icon="pi pi-plus" label="Add Product" [routerLink]="['/products/create']"
+                            pTooltip="Add Product" tooltipPosition="top"></button>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input [(ngModel)]="searchText" pInputText (input)="filterTable()" placeholder="Search" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Id</th>
+                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                        <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+                        <th pSortableColumn="categoryId">Category <p-sortIcon field="categoryId"></p-sortIcon></th>
+                        <th>Action</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-product let-i="rowIndex">
+                    <tr [pSelectableRow]="product">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ getCategoryName(product.categoryId) }}</td>
+                        <td>
+                            <button pButton icon="pi pi-pencil" class="m-2" pTooltip="Edit" tooltipPosition="top"
+                              ></button>
+                            <button pButton icon="pi pi-trash" class="m-2" pTooltip="Delete" tooltipPosition="top"
+                              ></button>
+                          </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <div class="grid m-2">
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <p-dialog header="Product Details" [(visible)]="displayDialog" [responsive]="true">
+                            <div *ngIf="selectedProduct">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" [(ngModel)]="selectedProduct.name" />
+
+                                <label for="description">Description</label>
+                                <input type="text" id="description" [(ngModel)]="selectedProduct.description" />
+
+                                <label for="category">Category</label>
+                                <select id="category" [(ngModel)]="selectedProduct.categoryId">
+                                    <option *ngFor="let category of categories" [value]="category.id">{{ category.name
+                                        }}</option>
+                                </select>
+
+                                <button pButton type="button" (click)="save()" label="Save"></button>
+                                <button pButton type="button" (click)="delete()" label="Delete"
+                                    class="delete-button"></button>
+                            </div>
+                        </p-dialog>
+
+                        <p-toast></p-toast>
+                    </div>

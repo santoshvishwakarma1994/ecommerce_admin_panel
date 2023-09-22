@@ -10,6 +10,8 @@ import { ProductDeleteComponent } from './product/product-delete/product-delete.
 import { ProductService } from 'src/app/Service/products/product.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared-module/shared.module';
+import { MessageService } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,12 +22,8 @@ import { SharedModule } from 'src/app/shared-module/shared.module';
     ProductUpdateComponent,
     ProductDeleteComponent
   ],
-  providers:[ProductService],
-  imports: [
-    CommonModule,
-    ProductsRoutingModule,
-    HttpClientModule,
-    SharedModule
-  ]
+  providers:[ProductService,MessageService],
+  imports: [CommonModule,HttpClientModule,ReactiveFormsModule,SharedModule,FormsModule,ProductsRoutingModule],
+
 })
 export class ProductsModule { }
