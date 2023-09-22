@@ -36,7 +36,10 @@ export class ProductListComponent implements OnInit {
   loadAttributes() {
     this.attributes = this.mockDataService.getAttributes();
   }
-
+  selectedCategoryName(categoryId: number): string {
+    const category = this.categories.find(cat => cat.id === categoryId);
+    return category ? category.name : '';
+  }
   save() {
     if (this.selectedProduct.id) {
       this.mockDataService.updateProduct(this.selectedProduct);

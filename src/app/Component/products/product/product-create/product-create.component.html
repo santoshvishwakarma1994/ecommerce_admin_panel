@@ -1,1 +1,28 @@
-<p>product-create works!</p>
+<p-toast></p-toast>
+<p-card header="Create Product Data">
+<form  (ngSubmit)="createProduct()" class="p-fluid">
+  <div class="p-grid">
+    <div class="p-col-6">
+      <div class="p-field col-3">
+        <label for="productName">Product Name</label>
+        <input type="text" pInputText id="productName" [(ngModel)]="newProduct.name" name="productName" required>
+      </div>
+    </div>
+    <div class="p-col-6">
+      <div class="p-field col-3">
+        <label for="productDescription">Product Description</label>
+        <textarea pInputTextarea id="productDescription" [(ngModel)]="newProduct.description" name="productDescription" rows="4" required></textarea>
+      </div>
+    </div>
+    <div class="p-col-6">
+      <div class="p-field col-3">
+        <label for="productCategory">Product Category</label>
+        <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Select Category" name="productCategory" [required]="true" optionLabel="name"></p-dropdown>
+        </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <button type="submit" pButton class="p-button-primary">Create Product</button>
+  </div>
+</form>
+</p-card>

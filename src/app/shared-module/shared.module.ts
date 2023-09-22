@@ -18,6 +18,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [],
@@ -39,7 +40,8 @@ import { MessageModule } from 'primeng/message';
     MessagesModule,
     ToastModule,
     CardModule,
-    MessageModule
+    MessageModule,
+    InputTextareaModule
   ],
   exports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { MessageModule } from 'primeng/message';
     MessagesModule,
     ToastModule,
     CardModule,
-    MessageModule
+    MessageModule,
+    InputTextareaModule
   ]
 })
 export class SharedModule { }
