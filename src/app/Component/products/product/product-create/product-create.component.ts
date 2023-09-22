@@ -5,6 +5,7 @@ import { MockDataService } from 'src/app/Service/mock-data.service';
 import { Product } from 'src/app/Model/product.model';
 import { Category } from 'src/app/Model/category.model';
 import { MessageService } from 'primeng/api';
+import { Attribute } from 'src/app/Model/attribute.model';
 
 @Component({
   selector: 'app-product-create',
@@ -14,6 +15,7 @@ import { MessageService } from 'primeng/api';
 
 })
 export class ProductCreateComponent implements OnInit {
+  selectedAttributes: Attribute[] = [];
   newProduct: Product = {
     id: 0,
     name: '',
@@ -21,7 +23,7 @@ export class ProductCreateComponent implements OnInit {
     categoryId: 0,
     attributes: []
   };
-
+  attributes: Attribute[] = [];
   categories: Category[] = [];
   selectedCategory: Category | null = null;
 
@@ -29,13 +31,30 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit() {
     this.loadCategories();
+    this.loadAttributes();
   }
 
   loadCategories() {
     this.categories = this.mockDataService.getCategories();
   }
 
+  loadAttributes() {
+    this.attributes = this.mockDataService.getAttributes();
+  }
+  addSelectedAttributes(attribute: Attribute) {
+    const index = this.selectedAttributes.findIndex((a) => a.id === attribute.id);
+    if (index !== -1) {
+      this.selectedAttributes.splice(index, 1);
+    } else {
+      this.selectedAttributes.push(attribute);
+    }
+  }
+  
+  isAttributeSelected(attribute: Attribute): boolean {
+    return this.selectedAttributes.some((a) => a.id === attribute.id);
+  }
   createProduct() {
+    this.newProduct.attributes = this.selectedAttributes;
     if (this.selectedCategory) {
       this.newProduct.categoryId = this.selectedCategory.id;
     }

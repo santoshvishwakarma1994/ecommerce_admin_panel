@@ -9,7 +9,7 @@
                             pTooltip="Add Product" tooltipPosition="top"></button>
                         <span class="p-input-icon-left ml-auto">
                             <i class="pi pi-search"></i>
-                            <input [(ngModel)]="searchText" pInputText (input)="filterTable()" placeholder="Search" />
+                            <input [(ngModel)]="searchText" pInputText (input)="filterTable()" placeholder="Search by name,description" />
                         </span>
                     </div>
                 </ng-template>
@@ -19,6 +19,7 @@
                         <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
                         <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
                         <th pSortableColumn="categoryId">Category <p-sortIcon field="categoryId"></p-sortIcon></th>
+                        <th pSortableColumn="name">Attributes <p-sortIcon field="name"></p-sortIcon></th>
                         <th>Action</th>
                     </tr>
                 </ng-template>
@@ -29,6 +30,13 @@
                         <td>{{ product.name }}</td>
                         <td>{{ product.description }}</td>
                         <td>{{ selectedCategoryName(product.categoryId) }}</td>
+                        <td>
+                            <ul>
+                              <li *ngFor="let attribute of getUniqueAttributes(product.attributes)">
+                                {{ attribute.name }}
+                              </li>
+                            </ul>
+                          </td>
                         <td>
                             <button pButton icon="pi pi-pencil" class="m-2" pTooltip="Edit"
                                 tooltipPosition="top"></button>

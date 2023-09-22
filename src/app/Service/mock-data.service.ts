@@ -64,12 +64,28 @@ export class MockDataService {
       description: 'Comfortable cotton t-shirt',
       categoryId: 4,
       attributes: [
-        { id: 1, name: 'Color', values: ['Red'] },
-        { id: 2, name: 'Size', values: ['Large'] },
+        { id: 1, name: 'Jeans', values: ['Red'] },
+        { id: 2, name: 'Shirt', values: ['Large'] },
       ],
     },
   ];
 
+  getAllProductAttributes(): Attribute[] {
+    const uniqueAttributes: Attribute[] = [];
+  
+    this.products.forEach((product) => {
+      product.attributes.forEach((attribute) => {
+        const existingAttribute = uniqueAttributes.find((a) => a.id === attribute.id);
+        if (!existingAttribute) {
+          uniqueAttributes.push(attribute);
+        }
+      });
+    });
+  
+    return uniqueAttributes;
+  }
+
+  
   getAttributes(): Attribute[] {
     return this.attributes;
   }

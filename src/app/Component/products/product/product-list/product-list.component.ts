@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectItem } from 'primeng/api';
 import { Attribute } from 'src/app/Model/attribute.model';
 import { Category } from 'src/app/Model/category.model';
 import { Product } from 'src/app/Model/product.model';
@@ -16,7 +17,9 @@ export class ProductListComponent implements OnInit {
   categories: Category[] = [];
   attributes: Attribute[] = [];
   searchText: string = '';
-
+  selectedAttributes: SelectItem[] = [];
+  availableAttributes: SelectItem[] = [];
+  
   constructor(private mockDataService: MockDataService) { }
 
   ngOnInit() {
@@ -32,9 +35,21 @@ export class ProductListComponent implements OnInit {
   loadCategories() {
     this.categories = this.mockDataService.getCategories();
   }
-
+  getUniqueAttributes(attributes: Attribute[]): Attribute[] {
+    const uniqueAttributes: Attribute[] = [];
+  
+    attributes.forEach((attribute) => {
+      const existingAttribute = uniqueAttributes.find((a) => a.id === attribute.id);
+      if (!existingAttribute) {
+        uniqueAttributes.push(attribute);
+      }
+    });
+  
+    return uniqueAttributes;
+  }
+  
   loadAttributes() {
-    this.attributes = this.mockDataService.getAttributes();
+    this.attributes = this.mockDataService.getAllProductAttributes();
   }
   selectedCategoryName(categoryId: number): string {
     const category = this.categories.find(cat => cat.id === categoryId);

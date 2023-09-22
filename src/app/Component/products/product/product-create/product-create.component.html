@@ -20,6 +20,20 @@
         <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Select Category" name="productCategory" [required]="true" optionLabel="name"></p-dropdown>
         </div>
     </div>
+    <div class="p-col-6">
+      <div class="p-field col-3">
+        <label for="productAttributes">Product Attributes</label>
+        <p-multiSelect
+          placeholder="Select Attribute"
+          [options]="attributes"
+          [(ngModel)]="selectedAttributes"
+          name="productAttributes"
+          [required]="true"
+          optionLabel="name"
+        ></p-multiSelect>
+      </div>
+    </div>
+    
   </div>
   <div class="col-2">
     <button type="submit" pButton class="p-button-primary">Create Product</button>
