@@ -1,5 +1,7 @@
+<p-toast></p-toast>
+
 <p-card header="Update Product Data">
-    <form [formGroup]="productUpdateForm" (ngSubmit)="updateProduct()" class="p-fluid">
+    <form [formGroup]="productUpdateForm" class="p-fluid">
         <div class="p-col-6">
             <div class="p-field col-3">
                 <label for="productName">Product Name</label>
@@ -34,7 +36,7 @@
             </div>
         </div>
         <div class="col-2">
-            <button type="submit" icon="pi pi-save" pButton class="p-button-primary">Update Product</button>
+            <p-button icon="pi pi-save" label="Update Product" class="p-button-primary"  (click)="updateProduct()"></p-button>
         </div>
     </form>
 </p-card>

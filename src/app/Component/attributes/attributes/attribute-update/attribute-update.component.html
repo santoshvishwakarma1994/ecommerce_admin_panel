@@ -2,7 +2,7 @@
 <p-toast></p-toast>
 
 <p-card header="Update Attributes Data">
-  <form (ngSubmit)="updateAttribute()" #attributeForm="ngForm">
+  <form #attributeForm="ngForm">
     <div class="p-grid">
       <div class="p-col-6">
         <div class="p-field col-3">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="col-2">
-      <button type="submit" icon="pi pi-save" pButton class="btn btn-primary" label="Update Attribute"></button>
+      <p-button icon="pi pi-save" label="Update Attribute" class="p-button-primary"  (click)="updateAttribute()"></p-button>
     </div>
   </form>
 </p-card>

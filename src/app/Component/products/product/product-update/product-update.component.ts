@@ -89,8 +89,9 @@ export class ProductUpdateComponent implements OnInit {
           summary: 'Success',
           detail: 'Product updated successfully',
         });
-        this.productUpdateForm.reset();
-        this.router.navigate(['/products/list']);
+        setTimeout(() => {
+          this.router.navigate(['/products/list']);
+        }, 1000);
       }
     } else {
       this.messageService.add({

@@ -1,6 +1,6 @@
 <p-toast></p-toast>
 <p-card header="Create Product Data">
-<form  (ngSubmit)="createProduct()" class="p-fluid">
+<form class="p-fluid">
   <div class="p-grid">
     <div class="p-col-6">
       <div class="p-field col-3">
@@ -36,7 +36,7 @@
     
   </div>
   <div class="col-2">
-    <button icon="pi pi-save" pButton class="p-button-primary">Create Product</button>
+    <p-button icon="pi pi-save" label="Create Product" class="p-button-primary"  (click)="createProduct()"></p-button>
   </div>
 </form>
 </p-card>
