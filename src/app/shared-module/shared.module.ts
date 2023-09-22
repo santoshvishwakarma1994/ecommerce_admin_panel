@@ -19,6 +19,7 @@ import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { TreeSelectModule } from 'primeng/treeselect';
 
 @NgModule({
   declarations: [],
@@ -41,7 +42,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ToastModule,
     CardModule,
     MessageModule,
-    InputTextareaModule
+    InputTextareaModule,
+    TreeSelectModule
   ],
   exports: [
     CommonModule,
@@ -62,7 +64,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ToastModule,
     CardModule,
     MessageModule,
-    InputTextareaModule
+    InputTextareaModule,
+    TreeSelectModule
   ]
 })
 export class SharedModule { }
