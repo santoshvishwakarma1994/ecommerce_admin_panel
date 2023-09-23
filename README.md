@@ -1,27 +1,22 @@
-# EcommerceAdminPanel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
 
-## Development server
+<!-- steps to run the application -->
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Note -- Make your you have install Angular cli and node js in your system
 
-## Code scaffolding
+step 1 -- clone the repo  below repor
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+https://github.com/santoshvishwakarma1994/ecommerce_admin_panel.git
 
-## Build
+step 2-- delete package-lock.json file then install below command 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+npm install or npm install --force 
 
-## Running unit tests
+steps 3-- run application using below command
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ng serve or npm run start
 
-## Running end-to-end tests
+steps 4--- run it with below url
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+http://localhost:4200
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
