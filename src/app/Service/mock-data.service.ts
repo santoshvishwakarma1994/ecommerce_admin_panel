@@ -18,16 +18,7 @@ export class MockDataService {
     { id: 8, name: 'Occasion', values: ['Party', 'Workout', 'Outdoor'] },
     { id: 9, name: 'Season', values: ['Spring', 'Summer', 'Fall', 'Winter'] },
     { id: 10, name: 'Pattern', values: ['Stripes', 'Plaid', 'Floral', 'Solid'] },
-    { id: 11, name: 'Sleeve Length', values: ['Short Sleeve', 'Long Sleeve', 'Sleeveless'] },
-    { id: 12, name: 'Neckline', values: ['Round Neck', 'V-Neck', 'Crew Neck'] },
-    { id: 13, name: 'Closure', values: ['Button', 'Zipper', 'Elastic'] },
-    { id: 14, name: 'Fit', values: ['Slim Fit', 'Regular Fit', 'Loose Fit'] },
-    { id: 15, name: 'Waistline', values: ['High Waist', 'Mid Waist', 'Low Waist'] },
-    { id: 16, name: 'Inseam Length', values: ['Short', 'Regular', 'Long'] },
-    { id: 17, name: 'Heel Height', values: ['Low Heel', 'Medium Heel', 'High Heel'] },
-    { id: 18, name: 'Toe Style', values: ['Round Toe', 'Pointed Toe', 'Open Toe'] },
-    { id: 19, name: 'Lining Material', values: ['Leather', 'Textile', 'Synthetic'] },
-    { id: 20, name: 'Fastening', values: ['Lace-Up', 'Buckle', 'Slip-On'] },
+    { id: 11, name: 'Sleeve Length', values: ['Short Sleeve', 'Long Sleeve', 'Sleeveless'] }
   ];
 
   private categories: Category[] = [
@@ -41,33 +32,31 @@ export class MockDataService {
     { id: 8, name: 'Jeans', parentId: 2 },
     { id: 9, name: 'Gaming Laptops', parentId: 3 },
     { id: 10, name: 'Casual T-Shirts', parentId: 4 },
-    { id: 11, name: 'Chargers', parentId: 5 },
-    { id: 12, name: 'Formal Dresses', parentId: 6 },
-    { id: 13, name: 'Headphones', parentId: 7 },
+    { id: 11, name: 'Chargers', parentId: 5 }
   ];
   
 
   private products: Product[] = [
-    {
-      id: 1,
-      name: 'Laptop 1',
-      description: 'High-performance laptop',
-      categoryId: 3,
-      attributes: [
-        { id: 1, name: 'Color', values: ['Silver'] },
-        { id: 2, name: 'Size', values: ['Medium'] },
-      ],
-    },
-    {
-      id: 2,
-      name: 'T-Shirt 1',
-      description: 'Comfortable cotton t-shirt',
-      categoryId: 4,
-      attributes: [
-        { id: 1, name: 'Jeans', values: ['Red'] },
-        { id: 2, name: 'Shirt', values: ['Large'] },
-      ],
-    },
+    // {
+    //   id: 1,
+    //   name: 'Laptop 1',
+    //   description: 'High-performance laptop',
+    //   categoryId: 3,
+    //   attributes: [
+    //     // { id: 1, name: 'Color', values: ['Silver'] },
+    //     // { id: 2, name: 'Size', values: ['Medium'] },
+    //   ],
+    // },
+    // {
+    //   id: 2,
+    //   name: 'T-Shirt 1',
+    //   description: 'Comfortable cotton t-shirt',
+    //   categoryId: 4,
+    //   attributes: [
+    //     // { id: 1, name: 'Jeans', values: ['Red'] },
+    //     // { id: 2, name: 'Shirt', values: ['Large'] },
+    //   ],
+    // },
   ];
 
   getAllProductAttributes(): Attribute[] {

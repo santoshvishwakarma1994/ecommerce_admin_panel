@@ -10,7 +10,7 @@
 </p-confirmDialog>
 
 <div class="grid m-2">
-  <div class="col-12 md:col-6">
+  <div class="col-12">
     <div class="card">
         <p-table [value]="filteredcategories" [scrollable]="true" scrollHeight="500px" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 20, 50]"
           [style]="{ 'min-width': '50rem' }">
@@ -52,38 +52,3 @@
       </div>
   </div>
 </div>
-
-
-
-
-<!-- 
-<a [routerLink]="['/attributes/create']">User Profile</a>
-<div class="container">
-  <h2>Attributes List</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Values</th>
-        <th>edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let attribute of attributes; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ attribute.name }}</td>
-        <td>
-          <select class="form-control">
-            <option *ngFor="let value of attribute.values" [value]="value">
-              {{ value }}
-            </option>
-          </select>
-        </td>
-        <button (click)="editAttribute(attribute.id)">Edit</button>
-        <button (click)="deleteAttribute(attribute.id)">Delete</button>
-
-      </tr>
-    </tbody>
-  </table>
-</div> -->
