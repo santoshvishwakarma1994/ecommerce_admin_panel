@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   activeItem: MenuItem | undefined;
   ngOnInit() {
-    this.router.navigateByUrl('/attributes/list');
     this.items = [
       { label: 'Attributes', icon: 'pi pi-fw pi-home', routerLink: '/attributes/list' },
       { label: 'Categories', icon: 'pi pi-fw pi-calendar', routerLink: '/categories/list' },

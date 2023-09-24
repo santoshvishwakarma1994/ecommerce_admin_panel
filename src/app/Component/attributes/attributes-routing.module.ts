@@ -7,7 +7,7 @@ import { AttributeDeleteComponent } from './attributes/attribute-delete/attribut
 import { AttributesComponent } from './attributes.component';
 
 const routes: Routes = [
-  { path: 'list', component: AttributeListComponent },
+  { path: '', component: AttributeListComponent },
   { path: 'create', component: AttributeCreateComponent },
   { path: 'update/:id', component: AttributeUpdateComponent },
   { path: 'delete/:id', component: AttributeDeleteComponent },
