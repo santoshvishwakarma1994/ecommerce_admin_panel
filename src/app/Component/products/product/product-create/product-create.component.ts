@@ -41,18 +41,7 @@ export class ProductCreateComponent implements OnInit {
   loadAttributes() {
     this.attributes = this.mockDataService.getAttributes();
   }
-  addSelectedAttributes(attribute: Attribute) {
-    const index = this.selectedAttributes.findIndex((a) => a.id === attribute.id);
-    if (index !== -1) {
-      this.selectedAttributes.splice(index, 1);
-    } else {
-      this.selectedAttributes.push(attribute);
-    }
-  }
-  
-  isAttributeSelected(attribute: Attribute): boolean {
-    return this.selectedAttributes.some((a) => a.id === attribute.id);
-  }
+ 
   createProduct() {
     this.newProduct.attributes = this.selectedAttributes;
     if (this.selectedCategory) {

@@ -30,10 +30,7 @@ export class CategoryCreateComponent {
   onSubmit(): void {
     if (this.categoriesForm.valid) {
       const newCategory: Category = this.categoriesForm.value;
-
-      // Use the mockDataService to create the category
       this.mockDataService.createCategory(newCategory);
-
       this.categoriesForm.reset({
         name: '',
         parentId: null,

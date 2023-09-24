@@ -66,7 +66,7 @@ export class ProductUpdateComponent implements OnInit {
         productName: product.name,
         productDescription: product.description,
         productCategory: this.selectedCategory,
-        productAttributes: product.attributes, // Set initial value here
+        productAttributes: product.attributes,
       });
     }
   }
